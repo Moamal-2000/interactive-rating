@@ -4,8 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 90%;
   height: 100vh;
+  margin: 0 auto;
 }
 
 .RatingCard {
@@ -13,6 +14,18 @@
   width: 400px;
   padding: 30px;
   @include prefix(border-radius, 16px);
+  opacity: 1;
+  @include prefix(transition, opacity .3s);
+
+  &.hide {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .RatingCard {
+    width: 100%
+  }
 }
 
 .imgHolder {

@@ -1,16 +1,27 @@
+import { useEffect, useState } from "react";
 import { useRateContext } from "../Contexts/RateContext";
-import styles from "./ThankYou.module.scss";
+import styles from "./_ThankYou.module.scss";
 
 const ThankYou = () => {
   const { rateValue } = useRateContext();
+  const [delayShowCard, setDelayShowCard] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setDelayShowCard(true), 300);
+  }, []);
 
   return (
     <div className={styles.container}>
-      <div className={styles.ThankYouCard}>
+      <div
+        className={`${styles.ThankYouCard} ${
+          delayShowCard ? styles.active : ""
+        }`}
+      >
         <div className={styles.imgHolder}>
           <img
             src={require("./images/illustration-thank-you.svg").default}
             alt="Thank you"
+            decoding="async"
           />
         </div>
 

@@ -4,8 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 90%;
   height: 100vh;
+  margin: 0 auto;
 }
 
 .ThankYouCard {
@@ -16,6 +17,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0;
+  @include prefix(transition, opacity .6s);
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .ThankYouCard {
+    width: 100%;
+  }
+}
+
+.imgHolder {
+  user-select: none;
 }
 
 .rate {

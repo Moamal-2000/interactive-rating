@@ -17,10 +17,14 @@ body {
   --medium-grey: hsl(216, 12%, 54%);
   --dark-blue: hsl(213, 19%, 18%);
   --very-dark-blue: hsl(216, 12%, 8%);
+  --light-dark-blue: hsl(212, 19%, 20%);
+}
+
+::selection {
+  background-color: var(--very-dark-blue);
 }
 
 .container {
   width: 80%;
   margin: 0 auto;
 }
-

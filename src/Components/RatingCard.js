@@ -1,14 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRateContext } from "../Contexts/RateContext";
 import styles from "./_RatingCard.module.scss";
 
 const RatingCard = () => {
   const rateContainerRef = useRef();
   const { rateValue, setRateValue, setIsUserRated } = useRateContext();
+  const [hideCard, setHideCard] = useState(false);
 
-  function handleSubmitButton() {
+  function handleSubmitButton(e) {
     if (!rateValue) return;
-    setIsUserRated(true);
+
+    e.target.textContent = "Loading...";
+
+    setTimeout(() => {
+      setHideCard(true);
+      setTimeout(() => setIsUserRated(true), 350);
+    }, 1000);
   }
 
   useEffect(() => {
@@ -26,11 +33,12 @@ const RatingCard = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.RatingCard}>
+      <div className={`${styles.RatingCard} ${hideCard ? styles.hide : ""}`}>
         <div className={styles.imgHolder}>
           <img
             src={require("./images/icon-star.svg").default}
             alt="start icon"
+            decoding="async"
           />
         </div>
 
@@ -61,7 +69,7 @@ const RatingCard = () => {
         <button
           className={styles.submitButton}
           type="button"
-          onClick={() => handleSubmitButton()}
+          onClick={(e) => handleSubmitButton(e)}
         >
           Submit
         </button>
