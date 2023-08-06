@@ -1,0 +1,112 @@
+@import "../helpers/mixins";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.RatingCard {
+  background-color: var(--dark-blue);
+  width: 400px;
+  padding: 30px;
+  @include prefix(border-radius, 16px);
+}
+
+.imgHolder {
+  @include center-x-y;
+  @include prefix(border-radius, 50%);
+  background-color: var(--light-dark-blue);
+  width: 50px;
+  height: 50px;
+  user-select: none;
+}
+
+.imgHolder img {}
+
+.title {
+  color: var(--white);
+  margin: 40px 0 20px;
+}
+
+.description {
+  color: var(--light-grey);
+  font-size: .9375rem;
+  line-height: 1.5;
+}
+
+.rateContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+.rate {
+  outline: none;
+  border: none;
+  user-select: none;
+  cursor: pointer;
+  @include center-x-y;
+  background-color: var(--light-dark-blue);
+  color: var(--medium-grey);
+  font-weight: 600;
+  @include prefix(border-radius, 50%);
+  width: 54px;
+  height: 54px;
+  font-size: 1rem;
+  box-shadow: var(--orange);
+  @include prefix(transition, (background-color .3s, color .3s, box-shadow .3s));
+
+  &:hover {
+    background-color: var(--orange);
+    color: var(--white);
+  }
+
+  &[active=true]:not(:hover) {
+    background-color: var(--light-grey);
+    color: var(--white);
+  }
+
+  &:active {
+    box-shadow: 0 0 11px 1px var(--orange);
+  }
+}
+
+.submitButton {
+  outline: none;
+  border: none;
+  background-color: var(--orange);
+  color: var(--white);
+  font-weight: 600;
+  padding: 15px;
+  @include prefix(border-radius, 50px);
+  width: 100%;
+  font-size: .9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  user-select: none;
+  cursor: pointer;
+  @include prefix(transition, (background-color .3s, color .3s, transform .3s));
+
+  &:hover {
+    background-color: var(--white);
+    color: var(--orange);
+  }
+
+  &:active {
+    @include prefix(transform, scale(.994))
+  }
+}
+
+
+:root {
+  --orange: hsl(25, 97%, 53%);
+  --white: hsl(0, 0%, 100%);
+  --light-grey: hsl(217, 12%, 63%);
+  --medium-grey: hsl(216, 12%, 54%);
+  --dark-blue: hsl(213, 19%, 18%);
+  --very-dark-blue: hsl(216, 12%, 8%);
+  --light-dark-blue: hsl(210, 22%, 20%);
+}
