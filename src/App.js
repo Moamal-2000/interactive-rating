@@ -4,7 +4,7 @@ import ThankYou from "./Components/ThankYou";
 import { RateContext } from "./Contexts/RateContext";
 
 function App() {
-  const [isUserRated, setIsUserRated] = useState(true);
+  const [isUserRated, setIsUserRated] = useState(false);
   const [rateValue, setRateValue] = useState("");
   const rateData = { rateValue, setRateValue, isUserRated, setIsUserRated };
 

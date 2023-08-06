@@ -6,7 +6,7 @@ const RatingCard = () => {
   const rateContainerRef = useRef();
   const { rateValue, setRateValue, setIsUserRated } = useRateContext();
 
-  function handleSubmitButton(e) {
+  function handleSubmitButton() {
     if (!rateValue) return;
     setIsUserRated(true);
   }
@@ -61,7 +61,7 @@ const RatingCard = () => {
         <button
           className={styles.submitButton}
           type="button"
-          onClick={(e) => handleSubmitButton(e)}
+          onClick={() => handleSubmitButton()}
         >
           Submit
         </button>
@@ -71,16 +71,3 @@ const RatingCard = () => {
 };
 
 export default RatingCard;
-
-// Rating state end
-
-// Thank you state start
-
-// You selected ( Add rating here ) out of 5
-
-// Thank you!
-
-//   We appreciate you taking the time to give a rating. If you ever need more support,
-//   don’t hesitate to get in touch!
-
-// Thank you state end
