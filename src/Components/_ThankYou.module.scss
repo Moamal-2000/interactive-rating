@@ -10,7 +10,7 @@
 }
 
 .ThankYouCard {
-  background-color: var(--dark-blue);
+  background-image: linear-gradient(to bottom, var(--dark-blue), var(--very-dark-blue));
   width: 400px;
   padding: 30px;
   @include prefix(border-radius, 16px);

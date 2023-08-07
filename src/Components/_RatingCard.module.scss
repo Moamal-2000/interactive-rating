@@ -10,7 +10,7 @@
 }
 
 .RatingCard {
-  background-color: var(--dark-blue);
+  background-image: linear-gradient(to bottom, var(--dark-blue), var(--very-dark-blue));
   width: 400px;
   padding: 30px;
   @include prefix(border-radius, 16px);
@@ -40,6 +40,7 @@
 .title {
   color: var(--white);
   margin: 40px 0 20px;
+  font-size: 1.75rem;
 }
 
 .description {
